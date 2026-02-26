@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eneo-common"
+version = "0.1.0"
+description = "Package SSO Keycloak pour les projets Django/DRF d'Eneo Group"
+readme = "README.md"
+license = { text = "Proprietary" }
+authors = [
+    { name = "Eneo Group", email = "dev@eneogroup.com" }
+]
+requires-python = ">=3.11"
+keywords = ["keycloak", "sso", "django", "drf", "jwt", "authentication"]
+
+dependencies = [
+    "django>=4.0",
+    "djangorestframework>=3.14",
+    "python-jose[cryptography]>=3.3",
+    "requests>=2.28",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-django>=4.5",
+    "pytest-mock>=3.10",
+]
+
+[project.urls]
+Repository = "https://github.com/eneogroup/eneo-common"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["eneo_common*"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.django_settings"
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
