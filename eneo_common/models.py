@@ -2,6 +2,7 @@ import uuid
 from django.db import models
 
 
+
 class AbstractKeycloakUser(models.Model):
     """
     Modèle Django abstrait pour les utilisateurs authentifiés via Keycloak.
